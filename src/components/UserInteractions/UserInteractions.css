@@ -1,0 +1,19 @@
+/* Colors */
+:root {
+  --darkGunmetal: #122932;
+  --blackCoral: #576066;
+  --queenBlue: #386fa4;
+  --middleBlue: #80ced7;
+  --mintCream: #f7fff7;
+  --platinum: #e0e2e3;
+}
+
+/* User Interactions*/
+
+.user_interactions {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: 5px auto 5px auto;
+  text-align: right;
+}

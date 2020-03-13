@@ -1,0 +1,40 @@
+/* Colors */
+:root {
+  --darkGunmetal: #122932;
+  --blackCoral: #576066;
+  --queenBlue: #386fa4;
+  --middleBlue: #80ced7;
+  --mintCream: #f7fff7;
+  --platinum: #e0e2e3;
+}
+
+/* User Feedback */
+.user_feedback {
+  display: flex;
+  flex-direction: column;
+  margin-top: 25px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.comment {
+  border: 2px solid var(--darkGunmetal);
+  margin: 10px 0 10px 0;
+  box-shadow: 2px 2px 2px black;
+}
+
+.user {
+  width: 100%;
+  color: var(--platinum);
+  padding: 10px;
+  background-color: var(--darkGunmetal);
+}
+
+.comment_text {
+  padding: 10px;
+}
+
+.comment_form {
+  width: 100%;
+}
