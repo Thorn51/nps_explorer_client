@@ -4,7 +4,6 @@ import HomePage from "./routes/HomePage/HomePage";
 import LoginPage from "./routes/LoginPage/LoginPage";
 import RegistrationPage from "./routes/RegistrationPage";
 import NoPage from "./routes/NoPage/NoPage";
-import "./App.css";
 
 function App() {
   return (
