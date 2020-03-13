@@ -1,0 +1,45 @@
+:root {
+  --darkGunmetal: #122932;
+  --blackCoral: #576066;
+  --queenBlue: #386fa4;
+  --middleBlue: #80ced7;
+  --mintCream: #f7fff7;
+  --platinum: #e0e2e3;
+}
+
+/* Homepage park cards */
+
+.featured_parks {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 15px;
+}
+
+.park_card {
+  display: block;
+  height: 300px;
+  width: 300px;
+  margin-top: 10px;
+  background: white;
+  border: var(--darkGunmetal) solid 2px;
+  box-shadow: 2px 2px 2px black;
+}
+
+.pc_designation {
+  text-align: center;
+  color: white;
+  padding: 5px;
+  background-color: var(--darkGunmetal);
+}
+
+.pc_name {
+  text-align: center;
+  padding: 10px;
+}
+
+.pc_description {
+  text-align: left;
+  padding: 5px;
+}

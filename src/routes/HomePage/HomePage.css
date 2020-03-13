@@ -1,0 +1,36 @@
+/* Colors */
+:root {
+  --darkGunmetal: #122932;
+  --blackCoral: #576066;
+  --queenBlue: #386fa4;
+  --middleBlue: #80ced7;
+  --mintCream: #f7fff7;
+  --platinum: #e0e2e3;
+}
+
+/* Homepage */
+
+.tag {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 50px;
+  background-color: var(--darkGunmetal);
+}
+
+.tag_text {
+  text-align: center;
+  color: var(--mintCream);
+  font-weight: lighter;
+}
+
+.state_selection {
+  width: 90%;
+  color: var(--darkGunmetal);
+  margin: 15px auto 15px auto;
+}
+
+.selected_state {
+  text-align: center;
+  font-size: 1.5em;
+}
