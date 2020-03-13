@@ -4,7 +4,31 @@ National Park Explorer was developed as a capstone project in the Thinkful Engin
 
 ## Purpose
 
-This will be an application that takes advantage of the National Park Service API. Users will be able to search by state to discover National Parks in their area. This will connect people to their National Parks and provide users a quick way to access information on outdoor recreation opportunities. The application will allow users to create a profile, rate parks, and comment on their experience at the various locations. This set of features is just a starting place, the MVP, of an application that could build a full social application around outdoor recreation.
+This application takes advantage of the [National Park Service API](https://www.nps.gov/subjects/digital/nps-data-api.htm). Users will be able to search states to discover all of the amazing activities the National Park Service has to offer. The application will allow users to create a profile, rate parks, save favorites, and comment on their experience at the various locations. This set of features is just a starting place, the MVP, of an application that could grow into a social hub on the amazing resources available to the public through the National Park Service.
+
+## Demo
+
+Coming soon!
+
+## Screenshots
+
+Coming soon!
+
+## Future of App
+
+While this iteration focuses on the NPS, there is tremendous growth opportunity into other outdoor recreation pursuits.
+
+## API
+
+Coming soon!
+
+## Technologies
+
+- React
+- JSX
+- JavaScript
+- HTML
+- CSS
 
 ## Available Scripts
 
