@@ -13,7 +13,7 @@ export default function Navigation() {
             </li>
           </ul>
           <li className="nav_li">
-            <a href="#login">Login</a>
+            <Link to="/login">Login</Link>
           </li>
           <li className="nav_li">
             <Link to="/registration">Register</Link>
