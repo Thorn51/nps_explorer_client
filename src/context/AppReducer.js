@@ -15,7 +15,8 @@ export default (state, action) => {
     case "NPS_NEWS":
       return {
         ...state,
-        news: [action.payload]
+        news: [action.payload],
+        loadingNews: false
       };
     case "FETCH_PARKS_ERROR":
       return {
