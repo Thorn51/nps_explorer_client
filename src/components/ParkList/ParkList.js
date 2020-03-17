@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
+import { GlobalContext } from "../../context/GlobalState";
 import ParkCard from "../ParkCard/ParkCard";
 import "./ParkList.css";
-import { GlobalContext } from "../../context/GlobalState";
 
 export default function ParkList() {
   const { parksInState } = useContext(GlobalContext);
