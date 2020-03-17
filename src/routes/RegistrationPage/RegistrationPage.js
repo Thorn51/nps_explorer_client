@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Navigation from "../../components/Navigation/Navigation";
 import Hero from "../../components/Hero/Hero";
 import "./RegistrationPage.css";
@@ -62,7 +63,7 @@ export default function RegistrationPage() {
           <hr />
           <p>
             Do you already have an account? Visit the{" "}
-            <a href="#login">login page</a>.
+            <Link to="/login">login page.</Link>.
           </p>
         </div>
       </main>
