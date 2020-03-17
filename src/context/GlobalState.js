@@ -7,6 +7,7 @@ const initialState = {
   searchState: [],
   parksInState: [],
   news: [],
+  park: [],
   error: null,
   loading: null
 };
@@ -36,8 +37,27 @@ export const GlobalProvider = ({ children }) => {
         payload: parks.data
       });
     } catch (error) {
+      console.log(error);
       dispatch({
         type: "FETCH_PARKS_ERROR",
+        payload: error.response.data
+      });
+    }
+  }
+
+  // Action -> Fetch news
+  async function getNews() {
+    try {
+      let news = await npsApiService.getNews();
+
+      dispatch({
+        type: "NPS_NEWS",
+        payload: news.data
+      });
+    } catch (error) {
+      console.log(error);
+      dispatch({
+        type: "FETCH_NEWS_ERROR",
         payload: error.response.data
       });
     }
@@ -48,10 +68,12 @@ export const GlobalProvider = ({ children }) => {
       value={{
         searchState: state.searchState,
         parksInState: state.parksInState,
+        news: state.news,
         error: state.error,
         loading: state.loading,
         selectState,
-        getParks
+        getParks,
+        getNews
       }}
     >
       {children}

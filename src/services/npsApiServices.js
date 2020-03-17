@@ -33,10 +33,12 @@ const npsApiService = {
       Authorization: config.NPS_API_TOKEN
     };
     // Form endpoint
-    let baseUrl = `${config.NPS_API_BASE_URL}/newsrelease`;
+    let baseUrl = `${config.NPS_API_BASE_URL}/newsreleases`;
+    let qParamLimit = "?limit=10";
+    let fetchUrl = baseUrl + qParamLimit;
 
     // Fetch the parks data from NPS api
-    return fetch(baseUrl, headers)
+    return fetch(fetchUrl, headers)
       .then(res => {
         if (!res.ok) {
           throw new Error("Failed to fetch news");

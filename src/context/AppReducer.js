@@ -12,7 +12,17 @@ export default (state, action) => {
         parksInState: [action.payload],
         loading: false
       };
+    case "NPS_NEWS":
+      return {
+        ...state,
+        news: [action.payload]
+      };
     case "FETCH_PARKS_ERROR":
+      return {
+        ...state,
+        error: action.payload
+      };
+    case "FETCH_NEWS_ERROR":
       return {
         ...state,
         error: action.payload
