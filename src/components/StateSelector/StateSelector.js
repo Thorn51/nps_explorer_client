@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { GlobalContext } from "../../context/GlobalState";
+import "./StateSelector.css";
 
 export default function StateSelector() {
   // Get actions from context
@@ -11,15 +12,15 @@ export default function StateSelector() {
     let stateName = e.target.options[e.target.selectedIndex].text;
     let stateCode = e.target.value;
 
-    // Store state information in state
+    // Send user selected data to reducer and store in state
     selectState(stateCode, stateName);
 
-    // Fetch list of parks by state
+    // Fetch list of parks by states, send to reducer, store in state
     getParks(stateCode);
   };
 
   return (
-    <div className="state_selection">
+    <section className="state_selection">
       <label htmlFor="states">What state would you like to explore?</label>
       <select name="states" id="state" onChange={onChange}>
         <option value="null">Select a State...</option>
@@ -75,6 +76,6 @@ export default function StateSelector() {
         <option value="WI">Wisconsin</option>
         <option value="WY">Wyoming</option>
       </select>
-    </div>
+    </section>
   );
 }
