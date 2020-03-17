@@ -9,7 +9,8 @@ const initialState = {
   news: [],
   park: [],
   error: null,
-  loading: null
+  loading: null,
+  loadingNews: true
 };
 
 // Create context
@@ -49,7 +50,7 @@ export const GlobalProvider = ({ children }) => {
   async function getNews() {
     try {
       let news = await npsApiService.getNews();
-
+      console.log(news);
       dispatch({
         type: "NPS_NEWS",
         payload: news.data
@@ -71,6 +72,7 @@ export const GlobalProvider = ({ children }) => {
         news: state.news,
         error: state.error,
         loading: state.loading,
+        loadingNews: state.loadingNews,
         selectState,
         getParks,
         getNews
