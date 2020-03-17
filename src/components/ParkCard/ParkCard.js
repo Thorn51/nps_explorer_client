@@ -1,17 +1,24 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./ParkCard.css";
 
-export default function ParkCard() {
+export default function ParkCard(props) {
+  function truncate(content) {
+    const words = content.split(" ");
+
+    if (words.length > 15) {
+      return words.slice(0, 20).join(" ") + "...";
+    } else {
+      return words.join(" ");
+    }
+  }
   return (
-    <div class="park_card">
-      <h5 class="pc_designation">National Monument</h5>
-      <h3 class="pc_name">Brimingham Civil Rights</h3>
-      <p class="pc_description">
-        In 1963, images of snarling police dogs unleashed against non-violent
-        protesters and of children being sprayed with high-pressure hoses
-        appeared in print and television news around the world. These dramatic
-        scenes...
-      </p>
-    </div>
+    <Link to={`/park/${props.parkCode}`} className="park_link">
+      <div className="park_card">
+        <h5 className="pc_designation">{props.designation}</h5>
+        <h3 className="pc_name">{props.name}</h3>
+        <p className="pc_description">{truncate(props.description)}</p>
+      </div>
+    </Link>
   );
 }
