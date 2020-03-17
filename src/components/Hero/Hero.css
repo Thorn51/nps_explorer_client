@@ -32,3 +32,19 @@
   font-size: 1.5em;
   text-align: center;
 }
+
+/* Tag */
+
+.tag {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 50px;
+  background-color: var(--darkGunmetal);
+}
+
+.tag_text {
+  text-align: center;
+  color: var(--mintCream);
+  font-weight: lighter;
+}
