@@ -10,27 +10,13 @@
 
 /* Homepage */
 
-.tag {
+.content {
+  width: 90%;
+  margin: 0 auto 0 auto;
+}
+
+.loading_animation {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  height: 50px;
-  background-color: var(--darkGunmetal);
-}
-
-.tag_text {
-  text-align: center;
-  color: var(--mintCream);
-  font-weight: lighter;
-}
-
-.state_selection {
-  width: 90%;
-  color: var(--darkGunmetal);
-  margin: 15px auto 15px auto;
-}
-
-.selected_state {
-  text-align: center;
-  font-size: 1.5em;
+  align-items: center;
 }
