@@ -4,8 +4,8 @@ import Navigation from "../../components/Navigation/Navigation";
 import Hero from "../../components/Hero/Hero";
 import StateSelector from "../../components/StateSelector/StateSelector";
 import ParkList from "../../components/ParkList/ParkList";
-import "./HomePage.css";
 import PropagateLoader from "react-spinners/PropagateLoader";
+import NewsReleaseList from "../../components/NewsReleaseList/NewsReleaseList";
 
 export default function HomePage() {
   const { loading, searchState, parksInState } = useContext(GlobalContext);
@@ -41,11 +41,7 @@ export default function HomePage() {
       <main>
         <StateSelector />
         <section className="content">
-          {loading === null ? (
-            <h3 className="news">National Park Service News</h3>
-          ) : (
-            renderParks()
-          )}
+          {loading === null ? <NewsReleaseList /> : renderParks()}
         </section>
       </main>
     </>
