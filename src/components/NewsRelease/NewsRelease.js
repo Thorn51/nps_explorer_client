@@ -7,7 +7,7 @@ export default function NewsRelease(props) {
       <div className="pr_title_container">
         <h3 className="pr_heading">{props.title}</h3>
       </div>
-      <p className="pr_heading">
+      <p className="pr_release_date">
         <span className="bold">Release Date: </span>
         {props.date}
       </p>

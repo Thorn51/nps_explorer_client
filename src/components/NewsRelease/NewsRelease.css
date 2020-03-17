@@ -26,6 +26,9 @@
   text-align: center;
 }
 
+.pr_release_date {
+  padding: 10px;
+}
 .bold {
   font-weight: bolder;
 }
