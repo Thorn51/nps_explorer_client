@@ -63,7 +63,7 @@ export default function RegistrationPage() {
           <hr />
           <p>
             Do you already have an account? Visit the{" "}
-            <Link to="/login">login page.</Link>.
+            <Link to="/login">login page.</Link>
           </p>
         </div>
       </main>
