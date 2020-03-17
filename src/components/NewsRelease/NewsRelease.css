@@ -1,0 +1,40 @@
+:root {
+  --darkGunmetal: #122932;
+  --blackCoral: #576066;
+  --queenBlue: #386fa4;
+  --middleBlue: #80ced7;
+  --mintCream: #f7fff7;
+  --platinum: #e0e2e3;
+}
+
+.news_release {
+  margin: 5px auto 10px auto;
+  padding-bottom: 15px;
+  border: solid 2px var(--darkGunmetal);
+  background-color: white;
+  box-shadow: 2px 2px 2px black;
+}
+
+.pr_title_container {
+  background-color: var(--darkGunmetal);
+  color: white;
+  border-bottom: solid 2px var(--darkGunmetal);
+}
+
+.pr_heading {
+  padding: 10px;
+  text-align: center;
+}
+
+.bold {
+  font-weight: bolder;
+}
+
+.pr_content {
+  padding: 10px;
+}
+
+.pr_more_info {
+  padding: 10px;
+  margin-bottom: 15px;
+}
