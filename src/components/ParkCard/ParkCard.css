@@ -40,6 +40,13 @@
 }
 
 .pc_description {
+  font-size: 0.9em;
+  font-weight: lighter;
   text-align: left;
-  padding: 5px;
+  padding: 10px;
+}
+
+.park_link {
+  text-decoration: none;
+  color: var(--darkGunmetal);
 }
