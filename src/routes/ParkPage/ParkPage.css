@@ -21,3 +21,19 @@
 h2 {
   margin: 10px 0px 10px 0px;
 }
+
+.park_main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section_title {
+  margin: 5px 0 5px 0;
+}
+
+.overview,
+.directions {
+  width: 90%;
+  margin: 0 auto 0 auto;
+}
