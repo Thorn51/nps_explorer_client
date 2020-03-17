@@ -37,6 +37,8 @@ const npsApiService = {
     let qParamLimit = "?limit=10";
     let fetchUrl = baseUrl + qParamLimit;
 
+    console.log(fetchUrl);
+
     // Fetch the parks data from NPS api
     return fetch(fetchUrl, headers)
       .then(res => {
