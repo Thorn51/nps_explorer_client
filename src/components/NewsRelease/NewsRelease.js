@@ -4,10 +4,15 @@ import "./NewsRelease.css";
 export default function NewsRelease(props) {
   return (
     <div className="news_release">
-      <h3 className="nr_heading">{props.title}</h3>
-      <h3 className="nr_heading">{props.date}</h3>
+      <div className="pr_title_container">
+        <h3 className="pr_heading">{props.title}</h3>
+      </div>
+      <p className="pr_heading">
+        <span className="bold">Release Date: </span>
+        {props.date}
+      </p>
       <p className="pr_content">{props.content}</p>
-      <a className="pr_more_info" href={props.url}>
+      <a className="pr_more_info" href={props.url} target="_blank">
         More Info
       </a>
     </div>
