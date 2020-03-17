@@ -1,0 +1,10 @@
+.state_selection {
+  width: 90%;
+  color: var(--darkGunmetal);
+  margin: 15px auto 15px auto;
+}
+
+.selected_state {
+  text-align: center;
+  font-size: 1.5em;
+}
