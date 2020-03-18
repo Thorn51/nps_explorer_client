@@ -21,7 +21,9 @@ export default function StateSelector() {
 
   return (
     <section className="state_selection">
-      <label htmlFor="states">What state would you like to explore?</label>
+      <label htmlFor="states" className="state_selector_label">
+        What state would you like to explore?
+      </label>
       <select name="states" id="state" onChange={onChange}>
         <option value="null">Select a State...</option>
         <option value="AL">Alabama</option>
