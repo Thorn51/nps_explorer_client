@@ -15,7 +15,11 @@ export default function ParkCard(props) {
   return (
     <Link to={`/park/${props.parkCode}`} className="park_link">
       <div className="park_card">
-        <h5 className="pc_designation">{props.designation}</h5>
+        <h5 className="pc_designation">
+          {props.designation == ""
+            ? "National Park Service"
+            : props.designation}
+        </h5>
         <h3 className="pc_name">{props.name}</h3>
         <p className="pc_description">{truncate(props.description)}</p>
       </div>
