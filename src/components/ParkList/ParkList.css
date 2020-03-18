@@ -1,13 +1,4 @@
-/* Colors */
-:root {
-  --darkGunmetal: #122932;
-  --blackCoral: #576066;
-  --queenBlue: #386fa4;
-  --middleBlue: #80ced7;
-  --mintCream: #f7fff7;
-  --platinum: #e0e2e3;
-}
-
+/* List of cards displayed on homepage */
 .parks_container {
   width: 90%;
   margin: 0 auto 0 auto;
