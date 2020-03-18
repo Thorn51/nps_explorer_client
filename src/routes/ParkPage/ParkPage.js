@@ -2,8 +2,8 @@ import React, { useContext, useEffect } from "react";
 import { GlobalContext } from "../../context/GlobalState";
 import Navigation from "../../components/Navigation/Navigation";
 import Hero from "../../components/Hero/Hero";
-import CommentForm from "../../components/CommentForm/CommentForm";
 import PropagateLoader from "react-spinners/PropagateLoader";
+import CommentList from "../../components/CommentList/CommentList";
 import "./ParkPage.css";
 
 export default function ParkPage(props) {
@@ -55,10 +55,7 @@ export default function ParkPage(props) {
               <h3 className="section_title">Directions</h3>
               <p>{park.directionsInfo}</p>
             </section>
-            <section className="feedback">
-              <h3 className="section_title">Comments</h3>
-              <CommentForm parkCode={parkCode} parkName={park.name} />
-            </section>
+            <CommentList parkCode={parkCode} parkName={park.name} />
           </main>
         </>
       );
