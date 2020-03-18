@@ -18,12 +18,23 @@ export default (state, action) => {
         news: [action.payload],
         loadingNews: false
       };
+    case "PARK":
+      return {
+        ...state,
+        park: action.payload[0],
+        loadingPark: false
+      };
     case "FETCH_PARKS_ERROR":
       return {
         ...state,
         error: action.payload
       };
     case "FETCH_NEWS_ERROR":
+      return {
+        ...state,
+        error: action.payload
+      };
+    case "FETCH_PARK_ERROR":
       return {
         ...state,
         error: action.payload

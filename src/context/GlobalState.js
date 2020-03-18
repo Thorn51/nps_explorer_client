@@ -10,7 +10,8 @@ const initialState = {
   park: [],
   error: null,
   loading: null,
-  loadingNews: true
+  loadingNews: true,
+  loadingPark: true
 };
 
 // Create context
@@ -50,7 +51,6 @@ export const GlobalProvider = ({ children }) => {
   async function getNews() {
     try {
       let news = await npsApiService.getNews();
-      console.log(news);
       dispatch({
         type: "NPS_NEWS",
         payload: news.data
@@ -64,18 +64,37 @@ export const GlobalProvider = ({ children }) => {
     }
   }
 
+  // Action -> fetch park by park code for park page
+  async function getParkByParkCode(parkCode) {
+    try {
+      let park = await npsApiService.getParkByCode(parkCode);
+      dispatch({
+        type: "PARK",
+        payload: park.data
+      });
+    } catch (error) {
+      dispatch({
+        type: "PARK_FETCH_ERROR",
+        payload: error
+      });
+    }
+  }
+
   return (
     <GlobalContext.Provider
       value={{
         searchState: state.searchState,
         parksInState: state.parksInState,
         news: state.news,
+        park: state.park,
         error: state.error,
         loading: state.loading,
         loadingNews: state.loadingNews,
+        loadingPark: state.loadingPark,
         selectState,
         getParks,
-        getNews
+        getNews,
+        getParkByParkCode
       }}
     >
       {children}
