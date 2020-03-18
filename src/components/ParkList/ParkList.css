@@ -7,3 +7,13 @@
   --mintCream: #f7fff7;
   --platinum: #e0e2e3;
 }
+
+.parks_container {
+  width: 90%;
+  margin: 0 auto 0 auto;
+}
+
+.parks_list_header {
+  text-align: center;
+  padding: 15px;
+}
