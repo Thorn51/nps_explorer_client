@@ -85,3 +85,30 @@ hr {
   margin-left: auto;
   margin-right: auto;
 }
+
+/* Media Queries -> Mobile first development */
+
+/* Standard Mobile Phones */
+@media only screen and (min-device-width: 375px) {
+  /* Styles */
+}
+
+/* Large Mobile Phones */
+@media only screen and (min-device-width: 411px) {
+  /* Styles */
+}
+
+/* Tablets */
+@media only screen and (min-device-width: 768px) {
+  /* Styles */
+}
+
+/* Desktops and laptops ----------- */
+@media only screen and (min-width: 1224px) {
+  /* Styles */
+}
+
+/* Large screens ----------- */
+@media only screen and (min-width: 1824px) {
+  /* Styles */
+}
