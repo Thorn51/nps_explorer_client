@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { GlobalContext } from "../../context/GlobalState";
 import Navigation from "../../components/Navigation/Navigation";
 import Hero from "../../components/Hero/Hero";
+import CommentForm from "../../components/CommentForm/CommentForm";
 import PropagateLoader from "react-spinners/PropagateLoader";
 import "./ParkPage.css";
 
@@ -52,6 +53,9 @@ export default function ParkPage(props) {
             <section className="directions">
               <h3 className="section_title">Directions</h3>
               <p>{park.directionsInfo}</p>
+            </section>
+            <section className="feedback">
+              <CommentForm parkName={park.name} />
             </section>
           </main>
         </>
