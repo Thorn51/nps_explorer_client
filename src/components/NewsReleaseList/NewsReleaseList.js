@@ -14,13 +14,15 @@ export default function NewsReleaseList() {
   console.log(news);
 
   return news.length === 0 ? (
-    <section className="nps_news">
+    <div className="loader">
       <h3 className="section_title">Fetching National Park Service News</h3>
-      <PropagateLoader />
-    </section>
+      <div className="loader_animation">
+        <PropagateLoader />
+      </div>
+    </div>
   ) : (
     <section className="nps_news">
-      <h3 className="section_title">National Park Service News</h3>
+      <h3 className="news_header">National Park Service News</h3>
       {news[0].map(release => (
         <NewsRelease
           key={release.id}
