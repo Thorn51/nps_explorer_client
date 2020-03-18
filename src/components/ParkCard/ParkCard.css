@@ -35,12 +35,13 @@
 }
 
 .pc_name {
+  font-size: 1.5em;
   text-align: center;
   padding: 10px;
 }
 
 .pc_description {
-  font-size: 0.9em;
+  font-size: 1em;
   font-weight: lighter;
   text-align: left;
   padding: 10px;
