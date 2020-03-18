@@ -8,6 +8,7 @@ const initialState = {
   parksInState: [],
   news: [],
   park: [],
+  comments: [],
   error: null,
   loading: null,
   loadingNews: true,
@@ -80,6 +81,15 @@ export const GlobalProvider = ({ children }) => {
     }
   }
 
+  // Action -> post user comment
+  function postComment(newComment) {
+    console.log(newComment);
+    dispatch({
+      type: "POST_COMMENT",
+      payload: newComment
+    });
+  }
+
   return (
     <GlobalContext.Provider
       value={{
@@ -91,10 +101,12 @@ export const GlobalProvider = ({ children }) => {
         loading: state.loading,
         loadingNews: state.loadingNews,
         loadingPark: state.loadingPark,
+        comments: state.comments,
         selectState,
         getParks,
         getNews,
-        getParkByParkCode
+        getParkByParkCode,
+        postComment
       }}
     >
       {children}

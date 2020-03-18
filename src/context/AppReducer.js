@@ -39,6 +39,11 @@ export default (state, action) => {
         ...state,
         error: action.payload
       };
+    case "POST_COMMENT":
+      return {
+        ...state,
+        comments: [...state.comments, action.payload]
+      };
     default:
       return state;
   }
