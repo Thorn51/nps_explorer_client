@@ -6,6 +6,7 @@ import StateSelector from "../../components/StateSelector/StateSelector";
 import ParkList from "../../components/ParkList/ParkList";
 import PropagateLoader from "react-spinners/PropagateLoader";
 import NewsReleaseList from "../../components/NewsReleaseList/NewsReleaseList";
+import "./HomePage.css";
 
 export default function HomePage() {
   const { loading, searchState, parksInState } = useContext(GlobalContext);
@@ -14,20 +15,17 @@ export default function HomePage() {
   function renderParks() {
     if (loading === true) {
       return (
-        <div className="loading_animation">
-          <h3 className="news">
+        <div className="loader">
+          <h3 className="loading_text">
             Fetching Parks for {searchState[0].stateName}
           </h3>
-          <PropagateLoader />
+          <div className="loader_animation">
+            <PropagateLoader />
+          </div>
         </div>
       );
     } else {
-      return (
-        <h3 className="parks_list">
-          {searchState[0].stateName} ({parksInState[0].length})
-          <ParkList />
-        </h3>
-      );
+      return <ParkList />;
     }
   }
   return (
@@ -40,9 +38,7 @@ export default function HomePage() {
       />
       <main>
         <StateSelector />
-        <section className="content">
-          {loading === null ? <NewsReleaseList /> : renderParks()}
-        </section>
+        {loading === null ? <NewsReleaseList /> : renderParks()}
       </main>
     </>
   );
