@@ -56,7 +56,8 @@ export default function ParkPage(props) {
               <p>{park.directionsInfo}</p>
             </section>
             <section className="feedback">
-              <CommentForm parkName={park.name} />
+              <h3 className="section_title">Comments</h3>
+              <CommentForm parkCode={parkCode} parkName={park.name} />
             </section>
           </main>
         </>
