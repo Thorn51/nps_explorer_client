@@ -7,7 +7,10 @@ export default function AboutPage() {
   return (
     <>
       <Navigation />
-      <Hero title="National Parks Explorer" />
+      <Hero
+        title="National Parks Explorer"
+        tag="About National Parks Explorer"
+      />
     </>
   );
 }
