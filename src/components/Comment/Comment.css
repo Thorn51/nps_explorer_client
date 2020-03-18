@@ -1,0 +1,21 @@
+/* Comment cards */
+
+.comment_header {
+  display: flex;
+  background-color: var(--darkGunmetal);
+  color: white;
+  padding: 10px;
+}
+
+.author {
+  width: 50%;
+}
+
+.submit_date {
+  width: 50%;
+  text-align: right;
+}
+
+.comment_text {
+  background-color: white;
+}
