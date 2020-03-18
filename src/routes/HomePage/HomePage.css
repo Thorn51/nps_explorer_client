@@ -10,13 +10,13 @@
 
 /* Homepage */
 
-.content {
-  width: 90%;
-  margin: 0 auto 0 auto;
-}
-
-.loading_animation {
+.loader {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 15px;
+}
+
+.loader_animation {
+  margin-top: 15px;
 }
