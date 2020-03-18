@@ -9,7 +9,7 @@ import NewsReleaseList from "../../components/NewsReleaseList/NewsReleaseList";
 import "./HomePage.css";
 
 export default function HomePage() {
-  const { loading, searchState, parksInState } = useContext(GlobalContext);
+  const { loading, searchState } = useContext(GlobalContext);
 
   // Conditional render based on status of loading
   function renderParks() {

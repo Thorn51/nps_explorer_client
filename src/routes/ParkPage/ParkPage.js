@@ -15,6 +15,7 @@ export default function ParkPage(props) {
   // Fetch the data from NPS and add it to the global state
   useEffect(() => {
     getParkByParkCode(parkCode);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Wait for data

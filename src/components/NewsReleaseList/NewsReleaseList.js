@@ -9,9 +9,8 @@ export default function NewsReleaseList() {
   // Get news
   useEffect(() => {
     getNews();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  console.log(news);
 
   return news.length === 0 ? (
     <div className="loader">
