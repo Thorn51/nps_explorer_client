@@ -1,17 +1,21 @@
 import React, { useContext, useState } from "react";
 import { GlobalContext } from "../../context/GlobalState";
+import moment from "moment";
 
 export default function CommentForm(props) {
-  const { postComment } = useContext(GlobalContext);
+  const { postComment, comments } = useContext(GlobalContext);
 
   const [comment, setComment] = useState("");
+
+  let id = comments.length === 0 ? 0 : comments[comments.length - 1].id + 1;
 
   const onSubmit = e => {
     e.preventDefault();
     let newComment = {
+      id,
       comment,
-      author: "Author",
-      dateSubmitted: Date.now().toString(),
+      author: "Author Name",
+      dateSubmitted: moment(),
       parkCode: props.parkCode
     };
     postComment(newComment);
@@ -20,9 +24,9 @@ export default function CommentForm(props) {
 
   return (
     <form className="comment_form" onSubmit={onSubmit}>
-      <p>You are required to be logged in to submit comments.</p>
-      <hr />
-      <label htmlFor="comment">Leave your thoughts for {props.parkName}</label>
+      <label htmlFor="comment">
+        Did you visit? What did you think of {props.parkName}?
+      </label>
       <textarea
         name="comment"
         cols="30"
@@ -35,6 +39,8 @@ export default function CommentForm(props) {
       <button type="submit" className="form_button">
         Submit
       </button>
+      <hr />
+      <p>You are required to be logged in to submit comments.</p>
     </form>
   );
 }
