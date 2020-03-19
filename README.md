@@ -8,7 +8,7 @@ This application takes advantage of the [National Park Service API](https://www.
 
 ## Demo
 
-- [National Park Service API](https://www.nps.gov/subjects/developer/index.htm) - The National Park Service API (application programming interface) and developer resources are designed to provide authoritative NPS data and content for internal and external developers creating apps, maps, and websites. You'll find photos and essential information about NPS sites including visitor centers, campgrounds, events, news, alerts, and more, as well as detailed articles about NPS natural and cultural features and important people and places.
+Coming Soon!
 
 ## Screenshots
 
@@ -20,7 +20,8 @@ While this iteration focuses on the NPS, there is tremendous growth opportunity 
 
 ## API
 
-Coming soon!
+- [National Park Service API](https://www.nps.gov/subjects/developer/index.htm) - The National Park Service API (application programming interface) and developer resources are designed to provide authoritative NPS data and content for internal and external developers creating apps, maps, and websites. You'll find photos and essential information about NPS sites including visitor centers, campgrounds, events, news, alerts, and more, as well as detailed articles about NPS natural and cultural features and important people and places.
+- NPS Explorer - Coming Soon!
 
 ## Technologies
 
