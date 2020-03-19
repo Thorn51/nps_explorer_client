@@ -3,13 +3,13 @@ export default (state, action) => {
     case "SEARCH_STATE":
       return {
         ...state,
-        searchState: [action.payload],
+        searchState: action.payload,
         loading: true
       };
     case "PARKS_IN_STATE":
       return {
         ...state,
-        parksInState: [action.payload],
+        parksInState: action.payload,
         loading: false
       };
     case "NPS_NEWS":

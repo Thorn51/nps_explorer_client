@@ -64,3 +64,7 @@ export default function ParkPage(props) {
 
   return renderPage();
 }
+
+ParkPage.defaultProps = {
+  match: { params: {} }
+};

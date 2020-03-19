@@ -27,3 +27,7 @@ export default function ParkCard(props) {
     </Link>
   );
 }
+
+ParkCard.defaultProps = {
+  description: ""
+};

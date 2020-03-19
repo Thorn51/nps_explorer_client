@@ -17,7 +17,7 @@ export default function HomePage() {
       return (
         <div className="loader">
           <h3 className="loading_text">
-            Fetching Parks for {searchState[0].stateName}
+            Fetching Parks for {searchState.stateName}
           </h3>
           <div className="loader_animation">
             <PropagateLoader />

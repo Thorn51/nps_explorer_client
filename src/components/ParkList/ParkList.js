@@ -9,10 +9,10 @@ export default function ParkList() {
   return (
     <div className="parks_container">
       <h3 className="parks_list_header">
-        {searchState[0].stateName} ({parksInState[0].length})
+        {searchState.stateName} ({parksInState.length})
       </h3>
       <section className="featured_parks">
-        {parksInState[0].map(park => (
+        {parksInState.map(park => (
           <ParkCard
             key={park.id}
             designation={park.designation}
@@ -25,3 +25,7 @@ export default function ParkList() {
     </div>
   );
 }
+
+ParkList.defaultProps = {
+  searchState: []
+};
