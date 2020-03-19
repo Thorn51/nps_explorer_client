@@ -24,6 +24,11 @@ export default (state, action) => {
         park: action.payload[0],
         loadingPark: false
       };
+    case "ADD_FAVORITE":
+      return {
+        ...state,
+        favorite: action.payload
+      };
     case "FETCH_PARKS_ERROR":
       return {
         ...state,

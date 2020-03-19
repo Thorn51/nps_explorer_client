@@ -82,6 +82,14 @@ export const GlobalProvider = ({ children }) => {
     }
   }
 
+  // Action -> add park to favorites
+  function addFavorite(favorite) {
+    dispatch({
+      type: "ADD_FAVORITE",
+      payload: favorite
+    });
+  }
+
   // Action -> post user comment
   function postComment(newComment) {
     dispatch({
@@ -102,11 +110,13 @@ export const GlobalProvider = ({ children }) => {
         loadingNews: state.loadingNews,
         loadingPark: state.loadingPark,
         comments: state.comments,
+        favorite: state.favorite,
         selectState,
         getParks,
         getNews,
         getParkByParkCode,
-        postComment
+        postComment,
+        addFavorite
       }}
     >
       {children}
