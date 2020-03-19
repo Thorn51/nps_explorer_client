@@ -8,6 +8,7 @@ const initialState = {
   parksInState: [],
   news: [],
   park: [],
+  favorite: [],
   comments: [],
   error: null,
   loading: null,
@@ -83,7 +84,6 @@ export const GlobalProvider = ({ children }) => {
 
   // Action -> post user comment
   function postComment(newComment) {
-    console.log(newComment);
     dispatch({
       type: "POST_COMMENT",
       payload: newComment
