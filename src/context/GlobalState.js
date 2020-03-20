@@ -44,7 +44,7 @@ export const GlobalProvider = ({ children }) => {
       console.log(error);
       dispatch({
         type: "FETCH_PARKS_ERROR",
-        payload: error.response.data
+        payload: error
       });
     }
   }
