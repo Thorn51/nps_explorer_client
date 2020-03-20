@@ -88,19 +88,11 @@ hr {
 
 /* Media Queries -> Mobile first development */
 
-/* Standard Mobile Phones */
-@media only screen and (min-device-width: 375px) {
-  /* Styles */
-}
-
-/* Large Mobile Phones */
-@media only screen and (min-device-width: 411px) {
-  /* Styles */
-}
-
 /* Tablets */
 @media only screen and (min-device-width: 768px) {
-  /* Styles */
+  .title {
+    font-size: 2.5em;
+  }
 }
 
 /* Desktops and laptops ----------- */
