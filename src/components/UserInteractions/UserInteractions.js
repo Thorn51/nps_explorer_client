@@ -20,8 +20,6 @@ export default function UserInteractions(props) {
     addFavorite(favoritePark);
   };
 
-  console.log(favoritePark, favorite);
-
   const favoriteIcon =
     favoritePark.selected === true ? (
       <Favorite onClick={onClick} color="secondary" fontSize="large" />
