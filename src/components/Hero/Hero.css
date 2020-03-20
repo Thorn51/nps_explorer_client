@@ -18,6 +18,7 @@
 
 .title {
   height: fit-content;
+  padding: 10px;
   color: var(--mintCream);
   font-size: 1.5em;
   text-align: center;
