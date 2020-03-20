@@ -27,7 +27,7 @@ export default (state, action) => {
     case "ADD_FAVORITE":
       return {
         ...state,
-        favorite: action.payload
+        favorite: [{ ...action.payload }]
       };
     case "FETCH_PARKS_ERROR":
       return {

@@ -5,6 +5,7 @@ import Hero from "../../components/Hero/Hero";
 import PropagateLoader from "react-spinners/PropagateLoader";
 import CommentList from "../../components/CommentList/CommentList";
 import "./ParkPage.css";
+import UserInteractions from "../../components/UserInteractions/UserInteractions";
 
 export default function ParkPage(props) {
   const { getParkByParkCode, park } = useContext(GlobalContext);
@@ -47,6 +48,7 @@ export default function ParkPage(props) {
             tag={park.designation}
           />
           <main className="park_main">
+            <UserInteractions parkCode={parkCode} />
             <section className="overview">
               <h3 className="section_title">Description</h3>
               <p>{park.description}</p>

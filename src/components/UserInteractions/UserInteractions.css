@@ -1,7 +1,10 @@
 .user_interactions {
-  display: flex;
-  flex-direction: column;
   width: 90%;
   margin: 5px auto 5px auto;
-  text-align: right;
+}
+
+.favorite_button {
+  background: none;
+  border: none;
+  cursor: pointer;
 }

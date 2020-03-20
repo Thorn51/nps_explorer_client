@@ -83,10 +83,10 @@ export const GlobalProvider = ({ children }) => {
   }
 
   // Action -> add park to favorites
-  function addFavorite(favorite) {
+  function addFavorite(favoritePark) {
     dispatch({
       type: "ADD_FAVORITE",
-      payload: favorite
+      payload: favoritePark
     });
   }
 
