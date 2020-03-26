@@ -16,5 +16,9 @@ const TokenServices = {
   },
   clearAuthToken() {
     window.sessionStorage.removeItem(config.EXPLORER_API_TOKEN);
+  },
+  getUsersDetails(token) {
+    const loggedInUser = jwtDecode(token);
+    return loggedInUser;
   }
 };
