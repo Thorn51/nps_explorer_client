@@ -10,5 +10,8 @@ const TokenServices = {
   },
   getAuthToken() {
     return window.sessionStorage.getItem(config.EXPLORER_API_TOKEN);
+  },
+  hasAuthToken() {
+    return !!TokenServices.getAuthToken();
   }
 };
