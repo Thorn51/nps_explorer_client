@@ -6,7 +6,7 @@ const AuthApiService = {
       method: "Post",
       headers: {
         "content-type": "application/json",
-        Authorization: config.EXPLORER_API_TOKEN
+        Authorization: `basic ${config.EXPLORER_API_TOKEN}`
       },
       body: JSON.stringify(credentials)
     })
@@ -16,5 +16,24 @@ const AuthApiService = {
       .catch(err => {
         console.log(err);
       });
+  },
+
+  postRegistration(newUser) {
+    return fetch(`${config.EXPLORER_BASE_URL}/api/users`, {
+      method: "Post",
+      headers: {
+        "content-type": "application/json",
+        Authorization: `basic ${config.EXPLORER_API_TOKEN}`
+      },
+      body: JSON.stringify(newUser)
+    })
+      .then(res => {
+        !res.ok ? res.json().then(e => Promise.reject(e)) : res.json();
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 };
+
+export default AuthApiService;
