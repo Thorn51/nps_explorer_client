@@ -13,5 +13,8 @@ const TokenServices = {
   },
   hasAuthToken() {
     return !!TokenServices.getAuthToken();
+  },
+  clearAuthToken() {
+    window.sessionStorage.removeItem(config.EXPLORER_API_TOKEN);
   }
 };
