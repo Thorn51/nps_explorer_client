@@ -7,5 +7,8 @@ const TokenServices = {
   },
   saveAuthToken(token) {
     window.sessionStorage.setItem(config.EXPLORER_API_TOKEN, token);
+  },
+  getAuthToken() {
+    return window.sessionStorage.getItem(config.EXPLORER_API_TOKEN);
   }
 };
