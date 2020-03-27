@@ -11,7 +11,7 @@ const initialState = {
   parksInState: [],
   news: [],
   park: [],
-  favorite: [],
+  favorites: [],
   comments: [],
   error: null,
   loading: null,
@@ -129,6 +129,19 @@ export const GlobalProvider = ({ children }) => {
     }
   }
 
+  // Action -> Get all favorites
+  async function getFavorites() {
+    let favorites = await ExplorerApiService.getFavorites();
+    try {
+      dispatch({
+        type: "GET_ALL_FAVORITES",
+        payload: favorites
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <GlobalContext.Provider
       value={{
@@ -141,7 +154,7 @@ export const GlobalProvider = ({ children }) => {
         loadingNews: state.loadingNews,
         loadingPark: state.loadingPark,
         comments: state.comments,
-        favorite: state.favorite,
+        favorites: state.favorites,
         loggedInUser: state.loggedInUser,
         selectState,
         getParks,
@@ -150,7 +163,8 @@ export const GlobalProvider = ({ children }) => {
         postComment,
         addFavorite,
         getComments,
-        login
+        login,
+        getFavorites
       }}
     >
       {children}

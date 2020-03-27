@@ -59,6 +59,11 @@ export default (state, action) => {
         ...state,
         error: action.payload
       };
+    case "GET_ALL_FAVORITES":
+      return {
+        ...state,
+        favorites: action.payload
+      };
     default:
       return state;
   }
