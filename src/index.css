@@ -78,6 +78,11 @@ hr {
   opacity: 0.9;
 }
 
+button:disabled {
+  cursor: not-allowed;
+  color: #84828f;
+}
+
 /* LOGIN FORM */
 
 .login_register {
