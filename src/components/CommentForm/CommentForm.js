@@ -10,11 +10,12 @@ export default function CommentForm(props) {
   const onSubmit = e => {
     e.preventDefault();
     let newComment = {
-      author: "Author Name",
+      commentText: comment,
       parkCode: props.parkCode
     };
-    postComment(newComment);
-    setComment("");
+    postComment(newComment).then(() => {
+      setComment("");
+    });
   };
 
   const renderFormLoggedIn = () => {
