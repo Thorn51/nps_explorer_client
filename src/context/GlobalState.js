@@ -1,6 +1,8 @@
 import React, { createContext, useReducer } from "react";
 import AppReducer from "./AppReducer";
 import npsApiService from "../services/npsApiServices";
+import AuthApiService from "../services/auth-api-service";
+import TokenServices from "../services/token-service";
 
 // Initial state
 const initialState = {
@@ -61,7 +63,7 @@ export const GlobalProvider = ({ children }) => {
       console.log(error);
       dispatch({
         type: "FETCH_NEWS_ERROR",
-        payload: error.response.data
+        payload: error
       });
     }
   }
@@ -98,6 +100,16 @@ export const GlobalProvider = ({ children }) => {
     });
   }
 
+  // Action -> Login
+  async function login(credentials) {
+    let user = await AuthApiService.postLogin(credentials);
+    try {
+      TokenServices.saveAuthToken(user.authToken);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <GlobalContext.Provider
       value={{
@@ -111,12 +123,14 @@ export const GlobalProvider = ({ children }) => {
         loadingPark: state.loadingPark,
         comments: state.comments,
         favorite: state.favorite,
+        loggedInUser: state.loggedInUser,
         selectState,
         getParks,
         getNews,
         getParkByParkCode,
         postComment,
-        addFavorite
+        addFavorite,
+        login
       }}
     >
       {children}
