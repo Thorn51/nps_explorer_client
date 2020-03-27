@@ -1,7 +1,6 @@
 import React, { useContext, useState } from "react";
 import { GlobalContext } from "../../context/GlobalState";
 import TokenServices from "../../services/token-service";
-import moment from "moment";
 
 export default function CommentForm(props) {
   const { postComment } = useContext(GlobalContext);
