@@ -9,13 +9,13 @@ const AuthApiService = {
         Authorization: `basic ${config.EXPLORER_API_TOKEN}`
       },
       body: JSON.stringify(credentials)
-    })
-      .then(res => {
-        !res.ok ? res.json().then(e => Promise.reject(e)) : res.json();
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    }).then(res => {
+      if (!res.ok) {
+        throw new Error("Login attempt failed");
+      } else {
+        return res.json();
+      }
+    });
   },
 
   postRegistration(newUser) {
