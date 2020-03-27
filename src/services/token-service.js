@@ -22,3 +22,5 @@ const TokenServices = {
     return loggedInUser;
   }
 };
+
+export default TokenServices;
