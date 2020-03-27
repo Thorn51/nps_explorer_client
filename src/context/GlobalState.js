@@ -3,6 +3,7 @@ import AppReducer from "./AppReducer";
 import npsApiService from "../services/npsApiServices";
 import AuthApiService from "../services/auth-api-service";
 import TokenServices from "../services/token-service";
+import ExplorerApiService from "../services/explorerApiServices";
 
 // Initial state
 const initialState = {
@@ -93,11 +94,29 @@ export const GlobalProvider = ({ children }) => {
   }
 
   // Action -> post user comment
-  function postComment(newComment) {
-    dispatch({
-      type: "POST_COMMENT",
-      payload: newComment
-    });
+  async function postComment(newComment) {
+    const comment = await ExplorerApiService.postComment(newComment);
+    try {
+      dispatch({
+        type: "POST_COMMENT",
+        payload: comment
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  // Action -> Get all comments
+  async function getComments() {
+    let comments = await ExplorerApiService.getComments();
+    try {
+      dispatch({
+        type: "GET_ALL_COMMENTS",
+        payload: comments
+      });
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   // Action -> Login
@@ -130,6 +149,7 @@ export const GlobalProvider = ({ children }) => {
         getParkByParkCode,
         postComment,
         addFavorite,
+        getComments,
         login
       }}
     >
