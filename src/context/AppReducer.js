@@ -49,6 +49,11 @@ export default (state, action) => {
         ...state,
         comments: [...state.comments, action.payload]
       };
+    case "GET_ALL_COMMENTS":
+      return {
+        ...state,
+        comments: action.payload
+      };
     case "LOGIN_ERROR":
       return {
         ...state,
