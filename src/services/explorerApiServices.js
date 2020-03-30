@@ -49,7 +49,7 @@ const ExplorerApiService = {
         console.log(err);
       });
   },
-  // Get all favorites
+  // Get favorite by user id
   getFavorites() {
     let baseUrl = config.EXPLORER_BASE_URL;
     let endpoint = `/api/favorites`;
@@ -58,7 +58,7 @@ const ExplorerApiService = {
       method: "GET",
       headers: {
         "content-type": "application/json",
-        Authorization: `Bearer ${TokenServices.getAuthToken()}`
+        Authorization: `Bearer ${config.EXPLORER_API_TOKEN}`
       }
     })
       .then(res => {
@@ -73,13 +73,13 @@ const ExplorerApiService = {
       });
   },
   // Post a favorite to database
-  postFavorite(favorite) {
+  postFavorite(newFavorite) {
     let baseUrl = config.EXPLORER_BASE_URL;
     let endpoint = `/api/favorites`;
 
     return fetch(baseUrl + endpoint, {
       method: "POST",
-      body: JSON.stringify(favorite),
+      body: JSON.stringify(newFavorite),
       headers: {
         "content-type": "application/json",
         Authorization: `Bearer ${TokenServices.getAuthToken()}`
