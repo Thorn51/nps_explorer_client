@@ -6,9 +6,12 @@ import PropagateLoader from "react-spinners/PropagateLoader";
 import CommentList from "../../components/CommentList/CommentList";
 import "./ParkPage.css";
 import UserInteractions from "../../components/UserInteractions/UserInteractions";
+import TokenServices from "../../services/token-service";
 
 export default function ParkPage(props) {
-  const { getParkByParkCode, park } = useContext(GlobalContext);
+  const { getParkByParkCode, park, getFavorites, favorites } = useContext(
+    GlobalContext
+  );
 
   // Find the park based on the park code
   const parkCode = props.match.params.parkCode;
@@ -16,6 +19,11 @@ export default function ParkPage(props) {
   // Fetch the data from NPS and add it to the global state
   useEffect(() => {
     getParkByParkCode(parkCode);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  // Fetch the favorites to pass down to user interactions
+  useEffect(() => {
+    getFavorites();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -47,8 +55,15 @@ export default function ParkPage(props) {
             }
             tag={park.designation}
           />
+          {TokenServices.hasAuthToken() && (
+            <UserInteractions
+              favorites={favorites.filter(
+                favorite => favorite.parkCode === parkCode
+              )}
+              parkCode={parkCode}
+            />
+          )}
           <main className="park_main">
-            <UserInteractions parkCode={parkCode} />
             <section className="overview">
               <h3 className="section_title">Description</h3>
               <p>{park.description}</p>
