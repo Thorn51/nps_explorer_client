@@ -11,9 +11,8 @@ export default function CommentList(props) {
 
   // Get comments from database
   useEffect(() => {
-    getComments().then(() => {
-      setBusy(false);
-    });
+    getComments();
+    setBusy(false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
