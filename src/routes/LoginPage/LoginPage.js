@@ -10,20 +10,26 @@ export default function LoginPage(props) {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [err, setErr] = useState();
 
   const handleSubmit = e => {
     e.preventDefault();
+    setErr(null);
 
     const credentials = {
       email,
       password
     };
 
-    login(credentials).then(() => {
-      setEmail("");
-      setPassword("");
-      props.history.goBack();
-    });
+    login(credentials)
+      .then(() => {
+        setEmail("");
+        setPassword("");
+        props.history.goBack();
+      })
+      .catch(err => {
+        setErr(err);
+      });
   };
 
   return (
@@ -36,6 +42,17 @@ export default function LoginPage(props) {
       />
       <main>
         <div className="form_container" onSubmit={handleSubmit}>
+          <div className="demo_user">
+            <h3 className="section_title">Demo User</h3>
+            <hr />
+            <p>Take a spin around NPS explorer with the demo user.</p>
+            <p className="credentials">
+              <span className="bold">Username:</span> demo.user@npsexplorer.com
+            </p>
+            <p className="credentials">
+              <span className="bold">Password:</span> DemoUser1!
+            </p>
+          </div>
           <form className="login_form">
             <label htmlFor="login_email">Email:</label>
             <input
@@ -60,6 +77,11 @@ export default function LoginPage(props) {
             <button type="submit" className="form_button">
               Login
             </button>
+            {err && (
+              <p className="alert">
+                The email and or password submitted are incorrect.
+              </p>
+            )}
             <hr />
             <p>
               Do you need to create an account? Visit the {""}
