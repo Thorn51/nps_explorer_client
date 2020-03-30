@@ -27,22 +27,7 @@ export default (state, action) => {
     case "ADD_FAVORITE":
       return {
         ...state,
-        favorite: [{ ...action.payload }]
-      };
-    case "FETCH_PARKS_ERROR":
-      return {
-        ...state,
-        error: action.payload
-      };
-    case "FETCH_NEWS_ERROR":
-      return {
-        ...state,
-        error: action.payload
-      };
-    case "FETCH_PARK_ERROR":
-      return {
-        ...state,
-        error: action.payload
+        favorite: action.payload
       };
     case "POST_COMMENT":
       return {
@@ -54,15 +39,15 @@ export default (state, action) => {
         ...state,
         comments: action.payload
       };
-    case "LOGIN_ERROR":
-      return {
-        ...state,
-        error: action.payload
-      };
-    case "GET_ALL_FAVORITES":
+    case "GET_FAVORITES":
       return {
         ...state,
         favorites: action.payload
+      };
+    case "ERROR":
+      return {
+        ...state,
+        error: action.payload
       };
     default:
       return state;
