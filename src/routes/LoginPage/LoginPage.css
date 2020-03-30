@@ -1,1 +1,14 @@
+.alert {
+  color: red;
+  font-weight: bolder;
+  text-align: center;
+  padding: 15px;
+}
 
+.demo_user {
+  padding: 15px;
+}
+
+.credentials {
+  padding-top: 10px;
+}
