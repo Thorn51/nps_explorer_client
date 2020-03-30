@@ -11,7 +11,7 @@ const AuthApiService = {
       body: JSON.stringify(credentials)
     }).then(res => {
       if (!res.ok) {
-        throw new Error("Login attempt failed");
+        throw new Error("The email and or password provided are incorrect");
       } else {
         return res.json();
       }
