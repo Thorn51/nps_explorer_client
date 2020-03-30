@@ -21,8 +21,6 @@ export default function UserInteractions(props) {
       : setIsFavorite(false);
   }, [props.favorites]);
 
-  console.log(isFavorite);
-
   const onClick = e => {
     e.preventDefault();
     if (hasFavorite === false) {
@@ -31,8 +29,8 @@ export default function UserInteractions(props) {
         favorite: true
       };
       addFavorite(newFavorite);
-      // setHasFavorite(true);
-      // setIsFavorite(true);
+      setHasFavorite(true);
+      setIsFavorite(true);
     } else {
       let user = TokenServices.getUsersDetails(TokenServices.getAuthToken());
       let userId = user.userId;
