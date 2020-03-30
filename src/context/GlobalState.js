@@ -11,8 +11,8 @@ const initialState = {
   parksInState: [],
   news: [],
   park: [],
-  favorites: [],
   comments: [],
+  favorites: [],
   error: null,
   loading: null,
   loadingNews: true,
@@ -45,10 +45,6 @@ export const GlobalProvider = ({ children }) => {
       });
     } catch (error) {
       console.log(error);
-      dispatch({
-        type: "FETCH_PARKS_ERROR",
-        payload: error
-      });
     }
   }
 
@@ -62,10 +58,6 @@ export const GlobalProvider = ({ children }) => {
       });
     } catch (error) {
       console.log(error);
-      dispatch({
-        type: "FETCH_NEWS_ERROR",
-        payload: error
-      });
     }
   }
 
@@ -78,19 +70,21 @@ export const GlobalProvider = ({ children }) => {
         payload: park.data
       });
     } catch (error) {
-      dispatch({
-        type: "PARK_FETCH_ERROR",
-        payload: error
-      });
+      console.log(error);
     }
   }
 
   // Action -> add park to favorites
-  function addFavorite(favoritePark) {
-    dispatch({
-      type: "ADD_FAVORITE",
-      payload: favoritePark
-    });
+  async function addFavorite(newFavorite) {
+    let favorite = ExplorerApiService.postFavorite(newFavorite);
+    try {
+      dispatch({
+        type: "ADD_FAVORITE",
+        payload: favorite
+      });
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   // Action -> post user comment
@@ -124,22 +118,41 @@ export const GlobalProvider = ({ children }) => {
     let user = await AuthApiService.postLogin(credentials);
     try {
       TokenServices.saveAuthToken(user.authToken);
-    } catch (error) {
-      console.log(error);
+    } catch (err) {
+      console.log(err);
+      dispatch({
+        type: "ERROR",
+        payload: err
+      });
     }
   }
 
-  // Action -> Get all favorites
+  // Action -> Get user favorites
   async function getFavorites() {
     let favorites = await ExplorerApiService.getFavorites();
+
     try {
       dispatch({
-        type: "GET_ALL_FAVORITES",
+        type: "GET_FAVORITES",
         payload: favorites
       });
     } catch (error) {
       console.log(error);
     }
+  }
+
+  // Action -> Edit favorite
+  function patchFavorite(favoriteId, updateFavorite) {
+    ExplorerApiService.patchFavorite(favoriteId, updateFavorite);
+
+    // try {
+    //   dispatch({
+    //     type: "PATCH_FAVORITE",
+    //     payload: update
+    //   });
+    // } catch (error) {
+    //   console.log(error);
+    // }
   }
 
   return (
@@ -164,6 +177,7 @@ export const GlobalProvider = ({ children }) => {
         addFavorite,
         getComments,
         login,
+        patchFavorite,
         getFavorites
       }}
     >
