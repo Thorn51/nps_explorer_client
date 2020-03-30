@@ -7,3 +7,27 @@
 .news_header {
   text-align: center;
 }
+
+/* Tablets */
+@media only screen and (min-device-width: 768px) {
+  .nps_news {
+    font-size: 1.2em;
+  }
+  .news_header {
+    font-size: 1.8em;
+  }
+}
+
+/* Desktops and laptops ----------- */
+@media only screen and (min-width: 1224px) {
+  li a {
+    font-size: 1.3em;
+  }
+}
+
+/* Large screens ----------- */
+@media only screen and (min-width: 1824px) {
+  li a {
+    font-size: 1.5em;
+  }
+}
