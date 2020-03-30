@@ -28,3 +28,17 @@ li a {
   color: var(--mintCream);
   text-decoration: none;
 }
+
+/* Desktops and laptops ----------- */
+@media only screen and (min-width: 1224px) {
+  li a {
+    font-size: 1.3em;
+  }
+}
+
+/* Large screens ----------- */
+@media only screen and (min-width: 1824px) {
+  li a {
+    font-size: 2em;
+  }
+}

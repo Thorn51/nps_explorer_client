@@ -3,7 +3,7 @@
   height: 40vh;
   border-bottom: solid 2px var(--darkGunmetal);
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center center;
   background-size: cover;
 }
 
@@ -38,4 +38,24 @@
   text-align: center;
   color: var(--mintCream);
   font-weight: lighter;
+  font-size: 0.8em;
+}
+
+/* Tablets */
+@media only screen and (min-device-width: 768px) {
+  .title {
+    font-size: 3em;
+  }
+  .tag_text {
+    font-size: 1.2em;
+  }
+}
+/* Large screens ----------- */
+@media only screen and (min-width: 1824px) {
+  .title {
+    font-size: 5em;
+  }
+  .tag_text {
+    font-size: 2em;
+  }
 }
