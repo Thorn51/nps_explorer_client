@@ -27,7 +27,7 @@ export default (state, action) => {
     case "ADD_FAVORITE":
       return {
         ...state,
-        favorite: action.payload
+        favorites: [...state.favorites, action.payload]
       };
     case "POST_COMMENT":
       return {

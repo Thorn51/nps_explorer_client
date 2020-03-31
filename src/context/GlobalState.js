@@ -76,7 +76,7 @@ export const GlobalProvider = ({ children }) => {
 
   // Action -> add park to favorites
   async function addFavorite(newFavorite) {
-    let favorite = ExplorerApiService.postFavorite(newFavorite);
+    let favorite = await ExplorerApiService.postFavorite(newFavorite);
     try {
       dispatch({
         type: "ADD_FAVORITE",
