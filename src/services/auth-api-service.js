@@ -26,13 +26,14 @@ const AuthApiService = {
         Authorization: `basic ${config.EXPLORER_API_TOKEN}`
       },
       body: JSON.stringify(newUser)
-    })
-      .then(res => {
-        !res.ok ? res.json().then(e => Promise.reject(e)) : res.json();
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    }).then(res => {
+      if (!res.ok) {
+        console.log(res);
+        throw new Error("Bad Request");
+      } else {
+        res.json();
+      }
+    });
   }
 };
 
