@@ -28,7 +28,6 @@ const AuthApiService = {
       body: JSON.stringify(newUser)
     }).then(res => {
       if (!res.ok) {
-        console.log(res);
         throw new Error("Bad Request");
       } else {
         res.json();
