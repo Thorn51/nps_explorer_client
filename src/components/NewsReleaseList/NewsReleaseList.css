@@ -9,25 +9,19 @@
 }
 
 /* Tablets */
-@media only screen and (min-device-width: 768px) {
+@media only screen and (min-width: 768px) {
   .nps_news {
-    font-size: 1.2em;
+    font-size: 1em;
   }
   .news_header {
-    font-size: 1.8em;
+    font-size: 1.3em;
   }
 }
 
 /* Desktops and laptops ----------- */
 @media only screen and (min-width: 1224px) {
-  li a {
-    font-size: 1.3em;
-  }
 }
 
 /* Large screens ----------- */
 @media only screen and (min-width: 1824px) {
-  li a {
-    font-size: 1.5em;
-  }
 }

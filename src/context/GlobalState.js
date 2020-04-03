@@ -4,6 +4,7 @@ import npsApiService from "../services/npsApiServices";
 import AuthApiService from "../services/auth-api-service";
 import TokenServices from "../services/token-service";
 import ExplorerApiService from "../services/explorerApiServices";
+import config from "../config";
 
 // Initial state
 const initialState = {
@@ -27,10 +28,26 @@ export const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
 
   // Action -> Select state and store it
-  function selectState(stateCode, stateName) {
+  async function selectState(stateCode, stateName) {
+    const stateDetails = await fetch(
+      `https://api.mapbox.com/geocoding/v5/mapbox.places/${stateName}.json?access_token=${config.MAP_TOKEN}`
+    )
+      .then(res => {
+        if (!res.ok) {
+          throw new Error("Fetch mapbox places failed");
+        } else {
+          return res.json();
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      });
+
+    console.log(stateName, stateDetails);
+
     dispatch({
       type: "SEARCH_STATE",
-      payload: { stateCode, stateName }
+      payload: stateDetails.features[0]
     });
   }
 

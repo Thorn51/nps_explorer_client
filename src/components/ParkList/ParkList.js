@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { GlobalContext } from "../../context/GlobalState";
 import ParkCard from "../ParkCard/ParkCard";
 import "./ParkList.css";
+import Map from "../Map/Map";
 
 export default function ParkList() {
   const { parksInState, searchState } = useContext(GlobalContext);
@@ -9,8 +10,16 @@ export default function ParkList() {
   return (
     <div className="parks_container">
       <h3 className="parks_list_header">
-        {searchState.stateName} ({parksInState.length})
+        {searchState.text} ({parksInState.length})
       </h3>
+      <div className="map">
+        <Map
+          parks={parksInState}
+          latitude={searchState.center[1]}
+          longitude={searchState.center[0]}
+          zoom={5}
+        />
+      </div>
       <section className="featured_parks">
         {parksInState.map(park => (
           <ParkCard

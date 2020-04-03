@@ -13,7 +13,7 @@ export default function StateSelector() {
     let stateCode = e.target.value;
 
     // Send user selected data to reducer and store in state
-    selectState(stateCode, stateName);
+    selectState(stateCode, `${stateName}, United States`);
 
     // Fetch list of parks by states, send to reducer, store in state
     getParks(stateCode);

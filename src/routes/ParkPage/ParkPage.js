@@ -7,6 +7,7 @@ import CommentList from "../../components/CommentList/CommentList";
 import "./ParkPage.css";
 import UserInteractions from "../../components/UserInteractions/UserInteractions";
 import TokenServices from "../../services/token-service";
+import Map from "../../components/Map/Map";
 
 export default function ParkPage(props) {
   const { getParkByParkCode, park, getFavorites, favorites } = useContext(
@@ -27,6 +28,7 @@ export default function ParkPage(props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  console.log(park);
   // Wait for data
   function renderPage() {
     if (park.length === 0) {
@@ -71,6 +73,16 @@ export default function ParkPage(props) {
             <section className="directions">
               <h3 className="section_title">Directions</h3>
               <p>{park.directionsInfo}</p>
+              {park.longitude ? (
+                <div className="map">
+                  <Map
+                    parks={park}
+                    latitude={parseFloat(park.latitude)}
+                    longitude={parseFloat(park.longitude)}
+                    zoom={9}
+                  />
+                </div>
+              ) : null}
             </section>
             <CommentList parkCode={parkCode} parkName={park.name} />
           </main>
