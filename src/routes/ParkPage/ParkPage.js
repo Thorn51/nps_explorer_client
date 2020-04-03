@@ -28,7 +28,6 @@ export default function ParkPage(props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  console.log(park);
   // Wait for data
   function renderPage() {
     if (park.length === 0) {
