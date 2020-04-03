@@ -33,7 +33,7 @@ export default function HomePage() {
       <Navigation />
       <Hero
         title="National Parks Explorer"
-        tag="Find a national park to explore..."
+        tag="Demo user available on login page."
         background="https://www.nps.gov/npgallery/GetAsset/2D26D223-1DD8-B71C-07C923F9B774BBB9/proxy/hires"
       />
       <main>

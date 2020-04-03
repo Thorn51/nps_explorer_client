@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import ReactMapGL, { Marker, Popup } from "react-map-gl";
 import config from "../../config";
 
@@ -8,16 +8,17 @@ export default function Map(props) {
     height: "100%",
     latitude: props.latitude,
     longitude: props.longitude,
-    zoom: props.zoom
+    zoom: props.zoom,
   });
 
+  // state used to populate map marker popup
   const [selectedPark, setSelectedPark] = useState(null);
 
   const renderMarkers = () => {
     if (props.parks.length > 1) {
-      return props.parks.map(park => {
+      return props.parks.map((park) => {
         // If longitude data is missing skip adding marker
-        if (park.longitude == false) {
+        if (park.longitude === "") {
           return null;
         } else {
           return (
@@ -29,7 +30,7 @@ export default function Map(props) {
               <img
                 src="https://i.imgur.com/MK4NUzI.png"
                 alt="Map marker icon"
-                onClick={e => {
+                onClick={(e) => {
                   e.preventDefault();
                   setSelectedPark(park);
                 }}
@@ -53,7 +54,7 @@ export default function Map(props) {
   return (
     <ReactMapGL
       {...viewport}
-      onViewportChange={nextViewport => setViewport(nextViewport)}
+      onViewportChange={(nextViewport) => setViewport(nextViewport)}
       mapStyle="mapbox://styles/thorn51/ck8hscg5s02if1ipb54rbcf3y"
       mapboxApiAccessToken={config.MAP_TOKEN}
     >
