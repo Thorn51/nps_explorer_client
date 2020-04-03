@@ -12,7 +12,10 @@ This application takes advantage of the [National Park Service API](https://www.
 
 ## Screenshots
 
-Coming soon!
+![National Park Explorer - Landing Page](/src/images/homepage.png)
+![National Park Explorer - Landing Page](/src/images/homepage-map-parks.png)
+![National Park Explorer - Landing Page](/src/images/homepage-map.png)
+![National Park Explorer - Landing Page](/src/images/park_page.png)
 
 ## Future of App
 
