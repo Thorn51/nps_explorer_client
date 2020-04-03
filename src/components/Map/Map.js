@@ -13,8 +13,6 @@ export default function Map(props) {
 
   const [selectedPark, setSelectedPark] = useState(null);
 
-  console.log(selectedPark);
-
   const renderMarkers = () => {
     if (props.parks.length > 1) {
       return props.parks.map(park => {
@@ -56,7 +54,7 @@ export default function Map(props) {
     <ReactMapGL
       {...viewport}
       onViewportChange={nextViewport => setViewport(nextViewport)}
-      mapStyle="mapbox://styles/mapbox/streets-v11"
+      mapStyle="mapbox://styles/thorn51/ck8hscg5s02if1ipb54rbcf3y"
       mapboxApiAccessToken={config.MAP_TOKEN}
     >
       {renderMarkers()}
