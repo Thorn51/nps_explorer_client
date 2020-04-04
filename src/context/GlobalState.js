@@ -17,7 +17,7 @@ const initialState = {
   error: null,
   loading: null,
   loadingNews: true,
-  loadingPark: true
+  loadingPark: true,
 };
 
 // Create context
@@ -32,22 +32,20 @@ export const GlobalProvider = ({ children }) => {
     const stateDetails = await fetch(
       `https://api.mapbox.com/geocoding/v5/mapbox.places/${stateName}.json?access_token=${config.MAP_TOKEN}`
     )
-      .then(res => {
+      .then((res) => {
         if (!res.ok) {
           throw new Error("Fetch mapbox places failed");
         } else {
           return res.json();
         }
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
       });
 
-    console.log(stateName, stateDetails);
-
     dispatch({
       type: "SEARCH_STATE",
-      payload: stateDetails.features[0]
+      payload: stateDetails.features[0],
     });
   }
 
@@ -58,7 +56,7 @@ export const GlobalProvider = ({ children }) => {
 
       dispatch({
         type: "PARKS_IN_STATE",
-        payload: parks.data
+        payload: parks.data,
       });
     } catch (error) {
       console.log(error);
@@ -71,7 +69,7 @@ export const GlobalProvider = ({ children }) => {
       let news = await npsApiService.getNews();
       dispatch({
         type: "NPS_NEWS",
-        payload: news.data
+        payload: news.data,
       });
     } catch (error) {
       console.log(error);
@@ -84,7 +82,7 @@ export const GlobalProvider = ({ children }) => {
       let park = await npsApiService.getParkByCode(parkCode);
       dispatch({
         type: "PARK",
-        payload: park.data
+        payload: park.data,
       });
     } catch (error) {
       console.log(error);
@@ -97,7 +95,7 @@ export const GlobalProvider = ({ children }) => {
     try {
       dispatch({
         type: "ADD_FAVORITE",
-        payload: favorite
+        payload: favorite,
       });
     } catch (error) {
       console.log(error);
@@ -110,7 +108,7 @@ export const GlobalProvider = ({ children }) => {
     try {
       dispatch({
         type: "POST_COMMENT",
-        payload: comment
+        payload: comment,
       });
     } catch (error) {
       console.log(error);
@@ -123,7 +121,7 @@ export const GlobalProvider = ({ children }) => {
     try {
       dispatch({
         type: "GET_ALL_COMMENTS",
-        payload: comments
+        payload: comments,
       });
     } catch (error) {
       console.log(error);
@@ -139,7 +137,7 @@ export const GlobalProvider = ({ children }) => {
       console.log(err);
       dispatch({
         type: "ERROR",
-        payload: err
+        payload: err,
       });
     }
   }
@@ -151,7 +149,7 @@ export const GlobalProvider = ({ children }) => {
     try {
       dispatch({
         type: "GET_FAVORITES",
-        payload: favorites
+        payload: favorites,
       });
     } catch (error) {
       console.log(error);
@@ -161,15 +159,6 @@ export const GlobalProvider = ({ children }) => {
   // Action -> Edit favorite
   function patchFavorite(favoriteId, updateFavorite) {
     ExplorerApiService.patchFavorite(favoriteId, updateFavorite);
-
-    // try {
-    //   dispatch({
-    //     type: "PATCH_FAVORITE",
-    //     payload: update
-    //   });
-    // } catch (error) {
-    //   console.log(error);
-    // }
   }
 
   return (
@@ -195,7 +184,7 @@ export const GlobalProvider = ({ children }) => {
         getComments,
         login,
         patchFavorite,
-        getFavorites
+        getFavorites,
       }}
     >
       {children}
