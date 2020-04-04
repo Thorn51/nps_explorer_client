@@ -7,7 +7,7 @@ export default function StateSelector() {
   const { selectState, getParks } = useContext(GlobalContext);
 
   // On select state send and store state info to state, fetch parks
-  const onChange = e => {
+  const onChange = (e) => {
     e.preventDefault();
     let stateName = e.target.options[e.target.selectedIndex].text;
     let stateCode = e.target.value;
@@ -24,7 +24,7 @@ export default function StateSelector() {
       <label htmlFor="states" className="state_selector_label">
         What state would you like to explore?
       </label>
-      <select name="states" id="state" onChange={onChange}>
+      <select name="states" id="states" onChange={onChange}>
         <option value="null">Select a State...</option>
         <option value="AL">Alabama</option>
         <option value="AK">Alaska</option>
