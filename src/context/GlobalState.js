@@ -40,7 +40,10 @@ export const GlobalProvider = ({ children }) => {
         }
       })
       .catch((err) => {
-        console.log(err);
+        dispatch({
+          type: "ERROR",
+          payload: err,
+        });
       });
 
     dispatch({
@@ -58,8 +61,11 @@ export const GlobalProvider = ({ children }) => {
         type: "PARKS_IN_STATE",
         payload: parks.data,
       });
-    } catch (error) {
-      console.log(error);
+    } catch (err) {
+      dispatch({
+        type: "ERROR",
+        payload: err,
+      });
     }
   }
 
@@ -71,8 +77,11 @@ export const GlobalProvider = ({ children }) => {
         type: "NPS_NEWS",
         payload: news.data,
       });
-    } catch (error) {
-      console.log(error);
+    } catch (err) {
+      dispatch({
+        type: "ERROR",
+        payload: err,
+      });
     }
   }
 
@@ -84,8 +93,11 @@ export const GlobalProvider = ({ children }) => {
         type: "PARK",
         payload: park.data,
       });
-    } catch (error) {
-      console.log(error);
+    } catch (err) {
+      dispatch({
+        type: "ERROR",
+        payload: err,
+      });
     }
   }
 
@@ -97,8 +109,11 @@ export const GlobalProvider = ({ children }) => {
         type: "ADD_FAVORITE",
         payload: favorite,
       });
-    } catch (error) {
-      console.log(error);
+    } catch (err) {
+      dispatch({
+        type: "ERROR",
+        payload: err,
+      });
     }
   }
 
@@ -110,8 +125,11 @@ export const GlobalProvider = ({ children }) => {
         type: "POST_COMMENT",
         payload: comment,
       });
-    } catch (error) {
-      console.log(error);
+    } catch (err) {
+      dispatch({
+        type: "ERROR",
+        payload: err,
+      });
     }
   }
 
@@ -123,8 +141,11 @@ export const GlobalProvider = ({ children }) => {
         type: "GET_ALL_COMMENTS",
         payload: comments,
       });
-    } catch (error) {
-      console.log(error);
+    } catch (err) {
+      dispatch({
+        type: "ERROR",
+        payload: err,
+      });
     }
   }
 
@@ -134,7 +155,6 @@ export const GlobalProvider = ({ children }) => {
     try {
       TokenServices.saveAuthToken(user.authToken);
     } catch (err) {
-      console.log(err);
       dispatch({
         type: "ERROR",
         payload: err,
@@ -151,8 +171,11 @@ export const GlobalProvider = ({ children }) => {
         type: "GET_FAVORITES",
         payload: favorites,
       });
-    } catch (error) {
-      console.log(error);
+    } catch (err) {
+      dispatch({
+        type: "ERROR",
+        payload: err,
+      });
     }
   }
 
