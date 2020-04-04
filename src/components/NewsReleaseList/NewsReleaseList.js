@@ -5,7 +5,8 @@ import PropagateLoader from "react-spinners/PropagateLoader";
 import "./NewsReleaseList.css";
 
 export default function NewsReleaseList() {
-  const { news, getNews } = useContext(GlobalContext);
+  const { news, getNews, error } = useContext(GlobalContext);
+
   // Get news
   useEffect(() => {
     getNews();
@@ -16,13 +17,20 @@ export default function NewsReleaseList() {
     <div className="loader">
       <h3 className="section_title">Fetching National Park Service News</h3>
       <div className="loader_animation">
-        <PropagateLoader />
+        {error ? (
+          <p className="alert">
+            Sorry we are having trouble fetching National Park Service news.
+            This is likely a network connection error. Please try again later.
+          </p>
+        ) : (
+          <PropagateLoader />
+        )}
       </div>
     </div>
   ) : (
     <section className="nps_news">
       <h3 className="news_header">National Park Service News</h3>
-      {news[0].map(release => (
+      {news[0].map((release) => (
         <NewsRelease
           key={release.id}
           title={release.title}
