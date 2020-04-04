@@ -5,7 +5,7 @@ const npsApiService = {
   getParksByState(searchState) {
     // Send authorization header with api token
     const headers = {
-      Authorization: config.NPS_API_TOKEN
+      Authorization: config.NPS_API_TOKEN,
     };
     // Form endpoint
     let baseUrl = `${config.NPS_API_BASE_URL}/parks?`;
@@ -14,14 +14,14 @@ const npsApiService = {
 
     // Fetch the parks data from NPS api
     return fetch(endPoint, headers)
-      .then(res => {
+      .then((res) => {
         if (!res.ok) {
           throw new Error("Failed to fetch parks");
         } else {
           return res.json();
         }
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
       });
   },
@@ -30,7 +30,7 @@ const npsApiService = {
   getParkByCode(parkCode) {
     // Send authorization header with api token
     const headers = {
-      Authorization: config.NPS_API_TOKEN
+      Authorization: config.NPS_API_TOKEN,
     };
     // Form endpoint
     let baseUrl = `${config.NPS_API_BASE_URL}/parks?`;
@@ -39,14 +39,14 @@ const npsApiService = {
 
     // Fetch the parks data from NPS api
     return fetch(endPoint, headers)
-      .then(res => {
+      .then((res) => {
         if (!res.ok) {
           throw new Error("Failed to fetch parks");
         } else {
           return res.json();
         }
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
       });
   },
@@ -55,7 +55,7 @@ const npsApiService = {
   getNews() {
     // Send authorization header with api token
     const headers = {
-      Authorization: config.NPS_API_TOKEN
+      Authorization: config.NPS_API_TOKEN,
     };
     // Form endpoint
     let baseUrl = `${config.NPS_API_BASE_URL}/newsreleases`;
@@ -63,18 +63,14 @@ const npsApiService = {
     let fetchUrl = baseUrl + qParamLimit;
 
     // Fetch the parks data from NPS api
-    return fetch(fetchUrl, headers)
-      .then(res => {
-        if (!res.ok) {
-          throw new Error("Failed to fetch news");
-        } else {
-          return res.json();
-        }
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  }
+    return fetch(fetchUrl, headers).then((res) => {
+      if (!res.ok) {
+        throw new Error("Failed to fetch news");
+      } else {
+        return res.json();
+      }
+    });
+  },
 };
 
 export default npsApiService;
