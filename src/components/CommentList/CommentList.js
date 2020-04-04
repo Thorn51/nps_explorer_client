@@ -5,7 +5,7 @@ import CommentForm from "../../components/CommentForm/CommentForm";
 import "./CommentList.css";
 
 export default function CommentList(props) {
-  const { comments, getComments } = useContext(GlobalContext);
+  const { comments, getComments, error } = useContext(GlobalContext);
 
   let [isBusy, setBusy] = useState(true);
 
@@ -18,13 +18,13 @@ export default function CommentList(props) {
 
   const renderParkComments = () => {
     let parkComments = comments.filter(
-      comment => comment.parkCode === props.parkCode
+      (comment) => comment.parkCode === props.parkCode
     );
     if (parkComments.length > 0) {
       return (
         <section className="feedback">
           <h3 className="section_title">Comments</h3>
-          {parkComments.map(comment => (
+          {parkComments.map((comment) => (
             <Comment
               key={comment.id}
               author={comment.authorName}
@@ -52,7 +52,13 @@ export default function CommentList(props) {
         renderParkComments()
       ) : (
         <section className="feedback">
-          <h3 className="section_title">Gathering Comments</h3>
+          {error ? (
+            <p className="alert">
+              Unable to gather comments at this time. Please try again later
+            </p>
+          ) : (
+            <h3 className="section_title">Gathering Comments</h3>
+          )}
         </section>
       )}
     </>

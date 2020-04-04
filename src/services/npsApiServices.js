@@ -13,17 +13,13 @@ const npsApiService = {
     let endPoint = `${baseUrl}${queryParam}`;
 
     // Fetch the parks data from NPS api
-    return fetch(endPoint, headers)
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error("Failed to fetch parks");
-        } else {
-          return res.json();
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    return fetch(endPoint, headers).then((res) => {
+      if (!res.ok) {
+        throw new Error("Failed to fetch parks");
+      } else {
+        return res.json();
+      }
+    });
   },
 
   // Get park by park code
@@ -38,17 +34,13 @@ const npsApiService = {
     let endPoint = `${baseUrl}${queryParam}`;
 
     // Fetch the parks data from NPS api
-    return fetch(endPoint, headers)
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error("Failed to fetch parks");
-        } else {
-          return res.json();
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    return fetch(endPoint, headers).then((res) => {
+      if (!res.ok) {
+        throw new Error("Failed to fetch parks");
+      } else {
+        return res.json();
+      }
+    });
   },
 
   // Get news releases

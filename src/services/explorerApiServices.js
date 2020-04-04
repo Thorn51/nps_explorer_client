@@ -11,19 +11,15 @@ const ExplorerApiService = {
       method: "GET",
       headers: {
         "content-type": "application/json",
-        Authorization: `Bearer ${config.EXPLORER_API_TOKEN}`
+        Authorization: `Bearer ${config.EXPLORER_API_TOKEN}`,
+      },
+    }).then((res) => {
+      if (!res.ok) {
+        throw new Error("Failed to fetch comments");
+      } else {
+        return res.json();
       }
-    })
-      .then(res => {
-        if (!res.ok) {
-          throw new Error("Failed to fetch comments");
-        } else {
-          return res.json();
-        }
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    });
   },
   // Post a new comment to database
   postComment(newComment) {
@@ -35,19 +31,15 @@ const ExplorerApiService = {
       body: JSON.stringify(newComment),
       headers: {
         "content-type": "application/json",
-        Authorization: `Bearer ${TokenServices.getAuthToken()}`
+        Authorization: `Bearer ${TokenServices.getAuthToken()}`,
+      },
+    }).then((res) => {
+      if (!res.ok) {
+        throw new Error("Failed to post comment");
+      } else {
+        return res.json();
       }
-    })
-      .then(res => {
-        if (!res.ok) {
-          throw new Error("Failed to post comment");
-        } else {
-          return res.json();
-        }
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    });
   },
   // Get favorite by user id
   getFavorites() {
@@ -58,19 +50,15 @@ const ExplorerApiService = {
       method: "GET",
       headers: {
         "content-type": "application/json",
-        Authorization: `Bearer ${config.EXPLORER_API_TOKEN}`
+        Authorization: `Bearer ${config.EXPLORER_API_TOKEN}`,
+      },
+    }).then((res) => {
+      if (!res.ok) {
+        throw new Error("Failed to fetch favorites");
+      } else {
+        return res.json();
       }
-    })
-      .then(res => {
-        if (!res.ok) {
-          throw new Error("Failed to fetch favorites");
-        } else {
-          return res.json();
-        }
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    });
   },
   // Post a favorite to database
   postFavorite(newFavorite) {
@@ -82,19 +70,15 @@ const ExplorerApiService = {
       body: JSON.stringify(newFavorite),
       headers: {
         "content-type": "application/json",
-        Authorization: `Bearer ${TokenServices.getAuthToken()}`
+        Authorization: `Bearer ${TokenServices.getAuthToken()}`,
+      },
+    }).then((res) => {
+      if (!res.ok) {
+        throw new Error("Failed to post favorite");
+      } else {
+        return res.json();
       }
-    })
-      .then(res => {
-        if (!res.ok) {
-          throw new Error("Failed to post favorite");
-        } else {
-          return res.json();
-        }
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    });
   },
   // Edit favorite in database
   patchFavorite(favoriteId, updateFavorite) {
@@ -106,20 +90,16 @@ const ExplorerApiService = {
       body: JSON.stringify(updateFavorite),
       headers: {
         "content-type": "application/json",
-        Authorization: `Bearer ${TokenServices.getAuthToken()}`
+        Authorization: `Bearer ${TokenServices.getAuthToken()}`,
+      },
+    }).then((res) => {
+      if (!res.ok) {
+        throw new Error("Failed to patch favorite");
+      } else {
+        return res.json();
       }
-    })
-      .then(res => {
-        if (!res.ok) {
-          throw new Error("Failed to patch favorite");
-        } else {
-          return res.json();
-        }
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  }
+    });
+  },
 };
 
 export default ExplorerApiService;

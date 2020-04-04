@@ -9,7 +9,7 @@ import NewsReleaseList from "../../components/NewsReleaseList/NewsReleaseList";
 import "./HomePage.css";
 
 export default function HomePage() {
-  const { loading, searchState } = useContext(GlobalContext);
+  const { loading, searchState, error } = useContext(GlobalContext);
 
   // Conditional render based on status of loading
   function renderParks() {
@@ -17,10 +17,17 @@ export default function HomePage() {
       return (
         <div className="loader">
           <h3 className="loading_text">
-            Fetching Parks for {searchState.context[0].text}
+            Fetching Parks for {searchState.text}
           </h3>
           <div className="loader_animation">
-            <PropagateLoader />
+            {error ? (
+              <p className="alert">
+                Unable to gather parks at this time. This is likely a network
+                error. Please try again later.
+              </p>
+            ) : (
+              <PropagateLoader />
+            )}
           </div>
         </div>
       );

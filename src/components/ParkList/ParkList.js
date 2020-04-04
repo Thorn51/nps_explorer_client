@@ -6,7 +6,6 @@ import Map from "../Map/Map";
 
 export default function ParkList() {
   const { parksInState, searchState } = useContext(GlobalContext);
-
   return (
     <div className="parks_container">
       <h3 className="parks_list_header">
@@ -21,7 +20,7 @@ export default function ParkList() {
         />
       </div>
       <section className="featured_parks">
-        {parksInState.map(park => (
+        {parksInState.map((park) => (
           <ParkCard
             key={park.id}
             designation={park.designation}
@@ -36,5 +35,5 @@ export default function ParkList() {
 }
 
 ParkList.defaultProps = {
-  searchState: []
+  searchState: [],
 };

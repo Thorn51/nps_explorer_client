@@ -78,7 +78,6 @@ export const GlobalProvider = ({ children }) => {
         payload: news.data,
       });
     } catch (err) {
-      console.log(err);
       dispatch({
         type: "ERROR",
         payload: err,
