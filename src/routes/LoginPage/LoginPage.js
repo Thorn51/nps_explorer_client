@@ -12,22 +12,22 @@ export default function LoginPage(props) {
   const [password, setPassword] = useState("");
   const [err, setErr] = useState();
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setErr(null);
 
     const credentials = {
       email,
-      password
+      password,
     };
 
     login(credentials)
       .then(() => {
         setEmail("");
         setPassword("");
-        props.history.goBack();
+        props.history.goBack("/");
       })
-      .catch(err => {
+      .catch((err) => {
         setErr(err);
       });
   };
@@ -60,7 +60,7 @@ export default function LoginPage(props) {
               placeholder="Enter Email"
               name="email"
               id="login_email"
-              onChange={e => setEmail(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
               value={email}
               required
             />
@@ -70,7 +70,7 @@ export default function LoginPage(props) {
               placeholder="Enter Password"
               name="password"
               id="login_password"
-              onChange={e => setPassword(e.target.value)}
+              onChange={(e) => setPassword(e.target.value)}
               value={password}
               required
             />
